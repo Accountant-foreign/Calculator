@@ -1,0 +1,55 @@
+#container{
+            margin: 40px;
+            margin-left: 10cm;
+            height: 11cm;
+            width: 11cm;
+            background-color: grey;
+            border-radius: 1%;
+            padding: 1%;
+        }
+
+        #screen{
+            height: 70px;
+            background-color: aquamarine;
+            margin:5px;
+            padding: 5px;
+        }
+
+        #screen div{
+            text-align: right;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        /*FLEX IS HERE*/
+        #btns{
+            display: flex;
+            margin: 5px;
+            height: 59px;
+        }
+
+        #btns button{
+            flex: 1;
+            border-radius: 2px;
+            border: none;
+            margin: 2px;
+        }
+
+        button{
+            transition: 0.15s;
+        }
+
+        button:hover{
+            opacity: 0.9;
+        }
+
+        button:active{
+            opacity: 0.8;
+        }
+
+        #color-yellow{
+            background-color: yellow;
+        }
+
+        #color-red{
+            background-color: lightcoral;
+        }
