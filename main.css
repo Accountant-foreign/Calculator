@@ -1,11 +1,17 @@
-#container{
+        body{
+            background-color: black;
+        }
+        
+        
+        #container{
             margin: 40px;
             margin-left: 10cm;
             height: 11cm;
             width: 11cm;
             background-color: grey;
-            border-radius: 1%;
             padding: 1%;
+            border:1px solid white;
+            border-radius: 2%;
         }
 
         #screen{
@@ -21,13 +27,13 @@
         }
 
         /*FLEX IS HERE*/
-        #btns{
+        .btns{
             display: flex;
             margin: 5px;
             height: 59px;
         }
 
-        #btns button{
+        .btns button{
             flex: 1;
             border-radius: 2px;
             border: none;
@@ -43,13 +49,13 @@
         }
 
         button:active{
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
-        #color-yellow{
-            background-color: yellow;
-        }
-
-        #color-red{
+        #clear{
             background-color: lightcoral;
+        }
+
+        #equals{
+            background-color: orange;
         }
