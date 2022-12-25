@@ -34,7 +34,14 @@ function operate(a, operator, b){
         return a*b;
     }
     if(operator==="÷"){
-        return a/b;
+        if(isFinite(a/b)){
+            return a/b;
+        }
+        document.getElementById('snark').textContent="No";
+        return;
+    }
+    if(operator==="%"){
+        return a%b;
     }
 }
 
@@ -60,7 +67,7 @@ function compute(value){
         }
         document.getElementById('operations').textContent+=value;
         controller++;//This means that we no longer have to assign values to the rhs operand; It shall always be there for us;
-        numberOfDecimals++;
+        numberOfDecimals=0;
         if(numberOfOperators==1){
             displayValue=operate(firstOperand, op, secondOperand);
             firstOperand=displayValue;
@@ -94,14 +101,22 @@ function equals(){
 
 function decimal(){
     if(numberOfDecimals==0){
-        if(controller==0){
+        if(numberOfOperators==0){
+            if(!(firstOperand.indexOf('.'))===-1){
+                return;
+            }
             firstOperand+="."
+            document.getElementById('number-op').textContent=firstOperand;
+            document.getElementById('operations').textContent+=".";
         } else {
             secondOperand+=".";
+            document.getElementById('number-op').textContent=secondOperand;
+            document.getElementById('operations').textContent+=".";
         }
     }
     numberOfDecimals++;
 }
+
 /**
  * Function to completely re-start the calculator and its operations
  */
@@ -115,4 +130,5 @@ function clear(){
     numberOfOperators=0;//If the number of operators exceed more than one, we must compute the previous two elements
     displayValue="";//Value that is eventually computed
     numberOfDecimals=0;//To make sure a maximum of one decimal can be entered
+    document.getElementById('snark').textContent="";
 }
