@@ -64,6 +64,9 @@ function compute(value){
             document.getElementById('number-op').textContent=secondOperand;
         }
     } else {
+        if(firstOperand==""){//LHS not entered
+            return;
+        }
         if(numberOfOperators==1 && secondOperand==""){//RHS operand not entered;
             return;
         }
@@ -117,6 +120,9 @@ function decimal(){
             document.getElementById('number-op').textContent=firstOperand;
             document.getElementById('operations').textContent+=".";
         } else {
+            if(numberOfOperators==1 && secondOperand==""){
+                return;
+            }
             secondOperand+=".";
             document.getElementById('number-op').textContent=secondOperand;
             document.getElementById('operations').textContent+=".";
