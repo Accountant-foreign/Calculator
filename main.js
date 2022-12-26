@@ -109,6 +109,7 @@ function equals(){
 function decimal(){
     if(numberOfDecimals==0){
         if(numberOfOperators==0){
+            firstOperand=firstOperand+"";
             if(!(firstOperand.indexOf('.'))===-1){
                 return;
             }
