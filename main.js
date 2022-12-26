@@ -11,7 +11,6 @@ document.getElementById('equals').onclick=equals;
 document.getElementById('decimal').onclick=decimal;
 Array.from(document.getElementsByClassName('btn')).forEach(element => {//Set the attribute of each element of class 'btn'
     element.setAttribute('onclick', 'compute(this)');
-    console.log(element);
 });
 
 
@@ -25,23 +24,26 @@ Array.from(document.getElementsByClassName('btn')).forEach(element => {//Set the
  */
 function operate(a, operator, b){
     if(operator==="+"){
-        return a+b
+        return (+a)+(+b)
     } 
-    if(operator==="-"){
+    else if(operator==="-"){
         return a-b;
     }
-    if(operator==="x"){
+    else if(operator==="x"){
         return a*b;
     }
-    if(operator==="÷"){
+    else if(operator==="÷"){
         if(isFinite(a/b)){
             return a/b;
         }
         document.getElementById('snark').textContent="No";
         return;
     }
-    if(operator==="%"){
+    else if(operator==="%"){
         return a%b;
+    }
+    else {
+        return;
     }
 }
 
@@ -88,6 +90,11 @@ function compute(value){
  */
 function equals(){
     if(numberOfOperators==1 && secondOperand==""){//RHS operand not entered;
+        return;
+    }
+    if(numberOfOperators==0 && secondOperand==""){
+        document.getElementById('operations').textContent=firstOperand;
+        document.getElementById('number-op').textContent=firstOperand;
         return;
     }
     displayValue=operate(firstOperand, op, secondOperand);
